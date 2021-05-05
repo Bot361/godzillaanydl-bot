@@ -1,1 +1,1 @@
-worker: python3 jebot.py
+web: micro-bot -p $PORT

@@ -136,7 +136,7 @@ async def callback_query_ytdl_audio(_, callback_query):
         with YoutubeDL(ydl_opts) as ydl:
             message = callback_query.message
             await message.reply_chat_action("typing")
-            info_dict = ydl.extract_info(url, download=False)
+            info_dict = ydl.extract_info(url, download=True)
             # download
             await callback_query.edit_message_text("**Downloading audio...**")
             ydl.process_info(info_dict)
@@ -215,7 +215,7 @@ async def callback_query_ytdl_video(_, callback_query):
         with YoutubeDL(ydl_opts) as ydl:
             message = callback_query.message
             await message.reply_chat_action("typing")
-            info_dict = ydl.extract_info(url, download=False)
+            info_dict = ydl.extract_info(url, download=True)
             # download
             await callback_query.edit_message_text("**Downloading video...**")
             ydl.process_info(info_dict)
